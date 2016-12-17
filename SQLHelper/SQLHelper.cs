@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+ * auther:ncepuhxh
+ * email:ncepuhxh@qq.com
+ * time:2016-12-18
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 
-
-namespace Insert
+namespace HCL
 {
     public class SQLHelper
     {
@@ -18,7 +21,7 @@ namespace Insert
         public SQLHelper()
         {
             // TODO: 部署 数据库连接字符串
-            string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+            string connStr = "server=IP;database=DataBaseName;uid=sa;pwd=12345";
             conn = new SqlConnection(connStr);
         }
         private SqlConnection GetConn()
@@ -73,7 +76,7 @@ namespace Insert
                     cmd.Parameters.AddRange(para);
                     res = cmd.ExecuteNonQuery();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
 
                     //throw e;
